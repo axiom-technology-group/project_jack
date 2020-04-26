@@ -1,5 +1,6 @@
 from fpdf import FPDF
 import re
+import os
 
 log_path = '/Users/ruby/Development/pem_key/Item/log'
 
