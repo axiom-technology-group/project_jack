@@ -4,6 +4,7 @@ import urllib.request as request
 from bs4 import BeautifulSoup
 import nltk
 from nltk.corpus import stopwords
+import PyPDF2
 
 def findAll(file, item):
     """
@@ -18,7 +19,7 @@ def findAll(file, item):
         for line in lines:
             if item in line:
                 count += 1
-    
+    f.close()
     return count
 
 def getDate():
@@ -30,15 +31,25 @@ def getDate():
     return now[0:18]
 
 
-def countWords(link, give_graph=False, include_stopwords=False, language='english'):
+def countWords(page, file_type='web', give_graph=False, include_stopwords=False, language='english'):
     """
-    This function will count the words in a webpage and
-    return a list containing the word counts for each
+    This function will count the words in a webpage or pdf
+    and return a list containing the word counts for each
     word. (mode 'g' for providing graph)
     """
-    reponse = request.urlopen(link)
-    soup = BeautifulSoup(reponse.read(), 'html5lib')
-    text = soup.get_text(strip=True)
+    if file_type == 'web': 
+        reponse = request.urlopen(page)
+        soup = BeautifulSoup(reponse.read(), 'html5lib')
+        text = soup.get_text(strip=True)
+    elif file_type == 'pdf':
+        f = open(page, 'rb')
+        pdf = PyPDF2.PdfFileReader(f)
+        text = ''
+    
+        for i in range(pdf.numPages):
+            text += pdf.getPage(i).extractText()
+        f.close()
+
     tokens = [t for t in text.split()]
     clean = tokens[:]
 
@@ -52,4 +63,4 @@ def countWords(link, give_graph=False, include_stopwords=False, language='englis
         freq.plot(20, cumulative=True)
     return freq.items()
 
-
+print(countWords('Project Part2.docx.pdf', file_type='pdf'))
