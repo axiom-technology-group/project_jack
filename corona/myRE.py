@@ -112,17 +112,22 @@ def uploadData(upload_file, port, table_name):
     cursor = connection.cursor()
     f = open(upload_file, 'r')
     lines = f.readlines()
-    columns = lines[0].replace('/', '_').replace(' ', '_')
+    columns = lines[0].replace('/', '_').replace(' ', '_').lower()
     columns_list = columns.split(',')
-    column_query = 'ALTER TABLE ' + table_name
-    for column in columns_list:
-        column_query += ' ADD COLUMN ' + column + ' text,'
-    column_query = column_query[:-1] + ';'
-    cursor.execute(column_query)
+
+    cursor.execute("SELECT * FROM " + table_name)
+    existing_column = [desc[0] for desc in cursor.description]
+    
+    if not all(elem in columns_list for elem in existing_column):
+        column_query = 'ALTER TABLE ' + table_name
+        for column in columns_list:
+            if column not in existing_column:
+                column_query += ' ADD COLUMN ' + column + ' text,'
+        column_query = column_query[:-1] + ';'
+        cursor.execute(column_query)
 
     datas = lines[1:]
     add_data_query = 'INSERT INTO ' + table_name + ' (' + columns + ')' + ' VALUES '
-    print(add_data_query)
     
     for data in datas:
         data = data.split(',')
@@ -130,10 +135,3 @@ def uploadData(upload_file, port, table_name):
         cursor.execute(add_data_query + data_query)
     connection.commit()
     f.close()
-
-"""
-f = open('C:/Users/zhan1/Desktop/Python/test_csv.txt', 'r')
-lines = f.readlines()
-print(listToString(lines[0]))
-"""
-uploadData('C:/Users/zhan1/Desktop/Python/test_csv.txt', 5000, 'test')
