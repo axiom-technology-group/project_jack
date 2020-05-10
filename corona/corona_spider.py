@@ -44,8 +44,6 @@ def modifyData(input_list):
     return output
             
 
-
-
 class CoronaSpider(scrapy.Spider):
     name = 'corona'
     start_urls = [
