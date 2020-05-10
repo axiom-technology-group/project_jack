@@ -90,8 +90,5 @@ def csvToJson(file_name):
     output_json.write('}')
     input_csv.close()
     output_json.close()
-
-
-csvToJson('C:/Users/zhan1/Desktop/Python/corona/2020-05-09-coronavirus.csv')
             
             

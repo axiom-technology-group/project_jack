@@ -29,15 +29,13 @@ def modifyData(input_list):
                 output.append(input_list[i + 1].replace(',', '', 3).strip())
             else:
                 NAindex = i
-                while input_list[NAindex + 1] == '\n':
+                while NAindex < len(input_list) - 1 and input_list[NAindex + 1] == '\n':
                     NAindex += 1
                     NAcounter += 1
                 for x in range(NAcounter):
                     output.append('N/A')
                     NAcounter = 0
                 i = NAindex - 2
-
-
             i = i + 2
         else:
             output.append(input_list[i].replace(',', '', 10).strip())
