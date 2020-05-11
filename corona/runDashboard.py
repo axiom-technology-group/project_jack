@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def goToMainPage():
-    f = open('C:/Users/zhan1/Desktop/Python/project_jack/htmls/dashboard.html')
+    f = open('C:/Users/zhan1/Desktop/Python/project_jack/corona/htmls/dashboard.html')
     html = f.read()
     f.close()
     return html
@@ -15,7 +15,7 @@ def goToMainPage():
 @app.route('/dashboard', methods=['POST', 'GET'])
 def dashboard():
     command = request.form['commands']
-    f = open('C:/Users/zhan1/Desktop/Python/project_jack/htmls/dashboard.html')
+    f = open('C:/Users/zhan1/Desktop/Python/project_jack/corona/htmls/dashboard.html')
     html = f.read()
     f.close()
     if command == 'craw_data':
