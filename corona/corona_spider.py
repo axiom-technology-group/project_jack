@@ -52,7 +52,8 @@ class CoronaSpider(scrapy.Spider):
 
     def parse(self, response):
         page = response.url.split("/")[-2]
-        filename = re.getDate() + '-%s.txt' % page
+        file_path = 'C:/Users/zhan1/Desktop/Python/project_jack/corona/'
+        filename = file_path + re.getDate() + '-%s.csv' % page
         with open(filename, 'w') as f:
             categories = modifyNames(response.css(
                 '#main_table_countries_today th::text')[:22].getall())
