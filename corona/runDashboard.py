@@ -15,9 +15,8 @@ def goToMainPage():
 @app.route('/dashboard', methods=['POST', 'GET'])
 def dashboard():
     command = request.form['commands']
-    f = open('C:/Users/zhan1/Desktop/Python/project_jack/corona/htmls/dashboard.html')
-    html = f.read()
-    f.close()
+    html = re.getHTML(
+        'C:/Users/zhan1/Desktop/Python/project_jack/corona/htmls/dashboard.html')
     if command == 'craw_data':
         try:
             os.system(
@@ -28,5 +27,7 @@ def dashboard():
     else:
         return html
 
+def click():
+    return re.getHTML('C:/Users/zhan1/Desktop/Python/project_jack/corona/htmls/dashboard.html') + 'click'
 
-app.run(port=9999)
+app.run(port=9999, debug=True)

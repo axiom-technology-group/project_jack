@@ -6,6 +6,12 @@ import nltk
 from nltk.corpus import stopwords
 import PyPDF2
 import psycopg2
+import fpdf
+import logging
+import os
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pandas as pd
 
 def findAll(file, item):
     """
@@ -110,28 +116,64 @@ def uploadData(upload_file, port, table_name):
                                         port=port,
                                         database='postgres')
     cursor = connection.cursor()
-    f = open(upload_file, 'r')
-    lines = f.readlines()
-    columns = lines[0].replace('/', '_').replace(' ', '_').lower()
-    columns_list = columns.split(',')
+    if upload_file.endswith('csv'):
+        f = open(upload_file, 'r')
+        lines = f.readlines()
+        f.close()
+        columns = lines[0].replace('/', '_').replace(' ', '_').lower()
+        columns_list = columns.split(',')
 
-    cursor.execute("SELECT * FROM " + table_name)
-    existing_column = [desc[0] for desc in cursor.description]
-    
-    if not all(elem in columns_list for elem in existing_column):
-        column_query = 'ALTER TABLE ' + table_name
-        for column in columns_list:
-            if column not in existing_column:
-                column_query += ' ADD COLUMN ' + column + ' text,'
-        column_query = column_query[:-1] + ';'
-        cursor.execute(column_query)
+        cursor.execute("SELECT * FROM " + table_name)
+        existing_column = [desc[0] for desc in cursor.description]
+        
+        if not all(elem in columns_list for elem in existing_column):
+            column_query = 'ALTER TABLE ' + table_name
+            for column in columns_list:
+                if column not in existing_column:
+                    column_query += ' ADD COLUMN ' + column + ' text,'
+            column_query = column_query[:-1] + ';'
+            cursor.execute(column_query)
 
-    datas = lines[1:]
-    add_data_query = 'INSERT INTO ' + table_name + ' (' + columns + ')' + ' VALUES '
-    
-    for data in datas:
-        data = data.split(',')
-        data_query = '(' + prepareData(data) + ');'
-        cursor.execute(add_data_query + data_query)
-    connection.commit()
+        datas = lines[1:]
+        add_data_query = 'INSERT INTO ' + table_name + ' (' + columns + ')' + ' VALUES '
+        
+        for data in datas:
+            data = data.split(',')
+            data_query = '(' + prepareData(data) + ');'
+            cursor.execute(add_data_query + data_query)
+
+    elif upload_file.endswith('.png'):
+        f = open(upload_file, 'rb')
+        data = f.read()
+        f.close()
+        date = getDate()
+        add_data_query = 'INSERT INTO ' + table_name + ' (date, img) VALUES (' + date + ', ' + str(psycopg2.Binary(data)) + ')'
+        cursor.execute(add_data_query)
+
+    connection.commit()  
+    connection.close()
+
+
+def generateGraph(input_csv, columns=['Country/Other', 'Total Cases'], upload=False):
+    sns.set(style='whitegrid')
+    data = pd.read_csv(input_csv, encoding='ISO-8859-1')
+    data = data[columns][data['Total Cases'] > 5000].sort_values(by='Total Cases', ascending=False)
+    f, ax = plt.subplots(figsize=(10, 20))
+    sns.barplot(x='Total Cases', y='Country/Other', data=data)
+    plt.title('COVID-19 Confirmed Cases')
+    plt.xlabel('Confirmed Cases')
+    plt.ylabel('Country')
+    plt.show()
+    file_name = 'C:/Users/zhan1/Desktop/Python/project_jack/corona/' + \
+        getDate() + 'COVID-19_Confirmed_Cases.png'
+    plt.savefig(file_name, bbox_inches='tight')
+    if upload:
+        uploadData(file_name, 5000, 'corona_img')
+
+
+def getHTML(file_path):
+    f = open(file_path)
+    html = f.read()
     f.close()
+    return html
+
