@@ -4,13 +4,11 @@ import os
 import sys
 
 app = Flask(__name__)
+html_path = 'C:/Users/zhan1/Desktop/Python/project_jack/corona/htmls/'
 
 @app.route('/')
 def goToMainPage():
-    f = open('C:/Users/zhan1/Desktop/Python/project_jack/corona/htmls/dashboard.html')
-    html = f.read()
-    f.close()
-    return html
+    return re.getHTML(html_path + 'dashboard.html')
 
 @app.route('/dashboard', methods=['POST', 'GET'])
 def dashboard():
@@ -24,6 +22,9 @@ def dashboard():
         except:
             return html + '<p>Failed to excute</p>'
         return html + 'done'
+    elif command == 'exit':
+        re.tryexit()
+        return 'still herer'
     else:
         return html
 

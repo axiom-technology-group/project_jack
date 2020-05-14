@@ -1,5 +1,5 @@
 import scrapy
-import myRE as re
+from myRE import getDate, goLog
 
 
 def modifyNames(input_list):
@@ -24,7 +24,7 @@ def modifyData(input_list):
     NAindex = 0
     NAcounter = 0
     while i < len(input_list) - 1:
-        if input_list[i] == '\n' or input_list[i] == '\n ':
+        if input_list[i] in ['\n', '\n ']:
             if input_list[i + 1] != '\n':
                 output.append(input_list[i + 1].replace(',', '', 3).strip())
             else:
@@ -50,10 +50,14 @@ class CoronaSpider(scrapy.Spider):
         'https://www.worldometers.info/coronavirus/'
     ]
 
+    def start_requests(self):
+        for url in self.start_urls:
+            yield scrapy.Request(url, errback=self.errback_message)
+
     def parse(self, response):
         page = response.url.split("/")[-2]
         file_path = 'C:/Users/zhan1/Desktop/Python/project_jack/corona/'
-        filename = file_path + re.getDate() + '-%s.csv' % page
+        filename = file_path + getDate() + '-%s-worldometers.csv' % page
         with open(filename, 'w') as f:
             categories = modifyNames(response.css(
                 '#main_table_countries_today th::text')[:22].getall())
@@ -63,7 +67,7 @@ class CoronaSpider(scrapy.Spider):
                 f.write(categories[i] + ',')
             f.write(categories[len(categories) - 1] + '\n')
 
-            country = 8
+            country = 9
             
             while country < 223:
                 curr = modifyData(response.xpath(
@@ -73,3 +77,10 @@ class CoronaSpider(scrapy.Spider):
                 f.write(curr[len(curr) - 1] + '\n')
                 country += 1
             f.close()
+        
+        goLog(file_path, 'Corona_Spider: Successfully crawed data from the target website.')
+
+    
+    def errback_message(self, failure):
+        file_path = 'C:/Users/zhan1/Desktop/Python/project_jack/corona/'
+        goLog(file_path, 'Corona_Spider: Failed to craw data: ' + repr(failure), level='error')
