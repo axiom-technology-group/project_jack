@@ -1,0 +1,3 @@
+LOG_PATH = 'C:/'
+DATA_PATH = 'C:/'
+SPIDER_PATH = 'C:/'
