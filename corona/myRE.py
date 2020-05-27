@@ -116,7 +116,7 @@ def uploadData(upload_file, port, table_name='default', log_path='C:/Users/zhan1
                         database='postgres')
     except:
         goLog(log_path, 'PostgresSQL_uploadData: Failed to connect to PSQL', level='error')
-        quit
+        return
     
     connection = psycopg2.connect(user='postgres',
                                   password='qwertyuiop135',
@@ -147,9 +147,9 @@ def uploadData(upload_file, port, table_name='default', log_path='C:/Users/zhan1
         except:
             goLog(
                 log_path, 'PostgresSQL_uploadData: Failed to create table.', level='error')
-            quit
+            return
 
-        cursor.execute('SELECT * FROM ' + table_name)
+        cursor.execute('SELECT * FROM ' + table_name + ';')
         existing_column = [desc[0] for desc in cursor.description]
 
         datas = lines[1:]
@@ -173,24 +173,6 @@ def uploadData(upload_file, port, table_name='default', log_path='C:/Users/zhan1
     connection.close()
 
 
-uploadData(
-    'C:/Users/zhan1/Desktop/Python/project_jack/corona/2020-05-09-coronavirus.csv', 5000)
-
-"""
-connection = psycopg2.connect(user='postgres',
-                              password='qwertyuiop135',
-                              host='127.0.0.1',
-                              port=5000,
-                              database='postgres')
-cursor = connection.cursor()
-cursor.execute(
-    "select relname from pg_class where relkind='r' and relname !~ '^(pg_|sql_)';")
-f = cursor.fetchall()
-print([name for tuples in f for name in tuples])
-connection.close()
-"""
-
-
 def generateGraph(input_csv, columns=['Country/Other', 'Total Cases'], upload=False):
     sns.set(style='whitegrid')
     data = pd.read_csv(input_csv, encoding='ISO-8859-1')
@@ -203,7 +185,7 @@ def generateGraph(input_csv, columns=['Country/Other', 'Total Cases'], upload=Fa
     plt.show()
     file_name = 'C:/Users/zhan1/Desktop/Python/project_jack/corona/' + \
         getDate() + 'COVID-19_Confirmed_Cases.png'
-    plt.savefig(file_name, bbox_inches='tight')
+    plt.savefig(file_name)
     if upload:
         uploadData(file_name, 5000, 'corona_img')
 
@@ -218,6 +200,81 @@ def getHTML(file_path):
     return html
 
 
+def getList(input_list):
+    if len(input_list) == 0:
+        return ''
+    else:
+        output =''
+        for element in input_list:
+            output += element + ', '
+        return output[:-2]
 
+
+def selectData(table_name, port, column=['*'], condition='', log_path='C:/Users/zhan1/Desktop/Python/project_jack/corona/'):
+    try:
+        psycopg2.connect(user='postgres',
+                         password='qwertyuiop135',
+                         host='127.0.0.1',
+                         port=port,
+                         database='postgres')
+    except:
+        goLog(log_path, 'PostgresSQL_selectData: Failed to connect to PSQL', level='error')
+        return
+
+    connection = psycopg2.connect(user='postgres',
+                                  password='qwertyuiop135',
+                                  host='127.0.0.1',
+                                  port=port,
+                                  database='postgres')
+    cursor = connection.cursor()
+    select_query = 'SELECT ' + getList(column) + ' FROM ' + table_name
+
+    if len(condition) != 0:
+        select_query += ' WHERE ' + condition
+    
+    cursor.execute(select_query)
+    records = cursor.fetchall()
+    
+    try:
+        cursor.execute(select_query)
+    except:
+        goLog(log_path, 'PostgresSQL_selectData: Failed to get PSQL', level='error')
+        return
+
+    goLog(log_path, 'PostgresSQL_selectData: Successfully selected the data from table.')
+    return [desc.strip() for desc in records[0]]
+
+
+def generateDF(column_list, data_list):
+    output = {}
+    for i in range(len(column_list)):
+        if data_list[i] == 'N/A':
+            output[column_list[i]] = [0]
+        else:
+            output[column_list[i]] = [data_list[i]]
+    print(output)
+    return pd.DataFrame(data=output)
+
+#ds = {'Country' : ['USA'], 'Total Cases' : [1385834], 'New Cases' : [0], 'Total Deaths' : [81795]}
+#df = pd.DataFrame(data=ds)
+#print(df)
+
+def plotCountry(table_name, column, condition):
+    data = selectData(table_name, 5000, column=column, condition=condition)
+
+
+    dataset = pd.read_csv('C:/Users/zhan1/Desktop/Python/f.csv', na_values='N/A', encoding='ISO-8859-1')
+    print(dataset)
+    sns.set()
+    sns.barplot(x='Type', y='Num', data=dataset)
+    plt.show()
+    
+    
+"""
+    dataset = sns.load_dataset(csv_data)
+    sns.barplot(x=)
+"""
+
+plotCountry('corona_data_2020_05_14', ['*'], "country_other = 'USA'")
 
 
