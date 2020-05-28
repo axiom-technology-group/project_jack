@@ -1,4 +1,5 @@
 import datetime
+from enum import Enum
 
 class MyLogging:
     
@@ -29,4 +30,9 @@ class MyLogging:
                 datetime.datetime.now()) + ' - ' + self._name + ' - ' + level.upper() + ' - ' + script
             f.write(text_in + '\n')
             f.close()
-        
+
+class Country(Enum):
+    USA = {'Name':'USA', 'Color':'#0C6FA6', 'Code':'USA', 'Flag':'us.png'}
+    CHINA = {'Name': 'China', 'Color':'#FF0000', 'Code': 'CHN', 'Flag':'cn.png'}
+    SPAIN = {'Name': 'Spain', 'Color':'#00000', 'Code': 'ESP', 'Flag':'es.png'}
+    UK = {'Name': 'UK', 'Color':'#000000', 'Code': 'GBR', 'Flag':'gb.png'}

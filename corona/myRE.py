@@ -11,7 +11,7 @@ import os
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
-from myClasses import MyLogging
+from myClasses import MyLogging, Country
 
 
 def goLog(
@@ -242,39 +242,54 @@ def selectData(table_name, port, column=['*'], condition='', log_path='C:/Users/
         return
 
     goLog(log_path, 'PostgresSQL_selectData: Successfully selected the data from table.')
-    return [desc.strip() for desc in records[0]]
+    return [desc for desc in records]
 
 
 def generateDF(column_list, data_list):
-    output = {}
+    output = {'type':[], 'data':[]}
     for i in range(len(column_list)):
-        if data_list[i] == 'N/A':
-            output[column_list[i]] = [0]
-        else:
-            output[column_list[i]] = [data_list[i]]
-    print(output)
-    return pd.DataFrame(data=output)
+        if data_list[i] != 'N/A':
+            try:
+                data_list[i] = int(data_list[i])
+                output['type'].append(column_list[i])
+                output['data'].append(data_list[i])
+            except:
+                pass
+    df = pd.DataFrame(data=output)
 
-#ds = {'Country' : ['USA'], 'Total Cases' : [1385834], 'New Cases' : [0], 'Total Deaths' : [81795]}
-#df = pd.DataFrame(data=ds)
-#print(df)
-
-def plotCountry(table_name, column, condition):
-    data = selectData(table_name, 5000, column=column, condition=condition)
+    return df
 
 
-    dataset = pd.read_csv('C:/Users/zhan1/Desktop/Python/f.csv', na_values='N/A', encoding='ISO-8859-1')
-    print(dataset)
+def plotCountry(data, country, path):
+    column_names = 'Country/Other,Total Cases,New Cases,Total Deaths,New Deaths,Total Recovered,Active Cases,Serious/Critical,Tot Cases/1M pop,Deaths/1M pop,Total Tests,Test/1M Pop,Continent'
+
+    df = generateDF(column_names.split(','), data)
+
     sns.set()
-    sns.barplot(x='Type', y='Num', data=dataset)
-    plt.show()
-    
-    
-"""
-    dataset = sns.load_dataset(csv_data)
-    sns.barplot(x=)
-"""
+    sns.barplot(x='type', y='data', data=df)
+    plt.xticks(rotation=45)
+    plt.savefig(path + country +'.png')
 
-plotCountry('corona_data_2020_05_14', ['*'], "country_other = 'USA'")
 
+def topCountries(table_name, path='C:/Users/zhan1/Desktop/Python/project_jack/corona/', top=3):
+    top_list = selectData(table_name, 5000)[0:top]
+    top_countries = list()
+    for i in range(len(top_list)):
+        plotCountry(list(top_list[i]), top_list[i][0], path)
+        top_countries.append(top_list[i][0])
+    dics = [e.value for e in Country]
+    countries = [e['Name'] for e in dics]
+
+    for i in range(len(top_countries)):
+        for j in range(len(countries)):
+            if top_countries[i] == countries[j]:
+                top_countries[i] = dics[j]['Code']
+
+    return top_countries
+
+
+def getFlag(file_path, country):
+    print()
+
+print(topCountries('corona_data_2020_05_14'))
 
