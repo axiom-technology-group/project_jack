@@ -105,3 +105,13 @@ def getHTML(file_path):
     html = f.read()
     f.close()
     return html
+
+
+def getList(input_list):
+    if len(input_list) == 0:
+        return ''
+    else:
+        output = ''
+        for element in input_list:
+            output += element + ', '
+        return output[:-2]

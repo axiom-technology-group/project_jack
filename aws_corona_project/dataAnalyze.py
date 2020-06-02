@@ -5,6 +5,8 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
 import utils as ut
+from myClasses import Country
+from config import FLAG_PATH
 
 
 def uploadData(upload_file, port, table_name='default'):
@@ -73,7 +75,7 @@ def uploadData(upload_file, port, table_name='default'):
     connection.close()
 
 
-def generateGraph(input_csv, columns=['Country/Other', 'Total Cases'], upload=False):
+def generateGraph(input_csv, file_path, columns=['Country/Other', 'Total Cases'], upload=False):
     sns.set(style='whitegrid')
     data = pd.read_csv(input_csv, encoding='ISO-8859-1')
     data = data[columns][data['Total Cases'] > 5000].sort_values(by='Total Cases', ascending=False)
@@ -83,7 +85,7 @@ def generateGraph(input_csv, columns=['Country/Other', 'Total Cases'], upload=Fa
     plt.xlabel('Confirmed Cases')
     plt.ylabel('Country')
     plt.show()
-    file_name = 'C:/Users/zhan1/Desktop/Python/project_jack/corona/' + \
+    file_name = file_path + \
         ut.getDate() + 'COVID-19_Confirmed_Cases.png'
     plt.savefig(file_name)
     if upload:
@@ -122,5 +124,58 @@ def selectData(table_name, port, column=['*'], condition=''):
         return
 
     ut.goLog('PostgresSQL_selectData: Successfully selected the data from table.')
-    return [desc[0] for desc in records]
+    return [desc for desc in records]
+
+
+def generateDF(column_list, data_list):
+    output = {'type': [], 'data': []}
+    for i in range(len(column_list)):
+        if data_list[i] != 'N/A':
+            try:
+                data_list[i] = int(data_list[i])
+                output['type'].append(column_list[i])
+                output['data'].append(data_list[i])
+            except:
+                pass
+    df = pd.DataFrame(data=output)
+
+    return df
+
+
+def plotCountry(data, country, path):
+    column_names = 'Country/Other,Total Cases,New Cases,Total Deaths,New Deaths,Total Recovered,Active Cases,Serious/Critical,Tot Cases/1M pop,Deaths/1M pop,Total Tests,Test/1M Pop,Continent'
+
+    df = generateDF(column_names.split(','), data)
+
+    sns.set()
+    sns.barplot(x='type', y='data', data=df)
+    plt.xticks(rotation=45)
+    plt.savefig(path + country + '.png')
+
+
+def topCountries(table_name, top=3):
+    top_list = selectData(table_name, 5000)[0:top]
+    top_countries = list()
+    for i in range(len(top_list)):
+        top_countries.append(top_list[i][0])
+    dics = [e.value for e in Country]
+
+    for item in dics:
+        for i in range(len(top_countries)):
+            if top_countries[i] == item['Name']:
+                top_countries[i] = tuple(
+                    (item['Code'], FLAG_PATH + item['Flag']))
+
+    return top_countries
+
+
+def getImage(country_name):
+    output_dict = dict()
+    dics = [e.value for e in Country]
+
+    for item in dics:
+        if item['Name'] == country_name:
+            output_dict = item
+
+    return output_dict['Flag']
 
