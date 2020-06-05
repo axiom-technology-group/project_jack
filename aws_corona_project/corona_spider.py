@@ -2,6 +2,7 @@ import scrapy
 from utils import getDate, goLog
 from config import DATA_PATH
 
+
 def modifyNames(input_list):
     length = len(input_list) // 2
     output = list()
@@ -12,9 +13,11 @@ def modifyNames(input_list):
         if name1.endswith(',') or name1.endswith('/'):
             name1 = name1[:len(name1) - 1] + '/'
             output.append(name1 + name2)
-        else:    
+        elif name1 == name2 and name1 == '\n':
+            pass
+        else:
             output.append(name1 + ' ' + name2)
-    
+
     return output
 
 
@@ -23,6 +26,10 @@ def modifyData(input_list):
     i = 0
     NAindex = 0
     NAcounter = 0
+    try:
+        input_list.remove(' ')
+    except:
+        pass
     while i < len(input_list) - 1:
         if input_list[i] in ['\n', '\n ']:
             if input_list[i + 1] != '\n':
@@ -40,8 +47,8 @@ def modifyData(input_list):
         else:
             output.append(input_list[i].replace(',', '', 10).strip())
             i += 1
-    
-    return output
+
+    return output[0:len(output) - 1]
             
 
 class CoronaSpider(scrapy.Spider):
@@ -56,29 +63,35 @@ class CoronaSpider(scrapy.Spider):
 
     def parse(self, response):
         page = response.url.split("/")[-2]
-        file_path = DATA_PATH
+        file_path = 'C:/Users/zhan1/Desktop/Python/project_jack/corona/'
         filename = file_path + getDate() + '-%s-worldometers.csv' % page
         with open(filename, 'w') as f:
             categories = modifyNames(response.css(
-                '#main_table_countries_today th::text')[:22].getall())
-            categories.append('Test/1M Pop')
-            categories.append('Continent')
+                '#main_table_countries_today th::text')[1:25].getall())
+            categories.insert(0, '#')
+            categories.append('Test/1M pop')
+
             for i in range(len(categories) - 1):
                 f.write(categories[i] + ',')
             f.write(categories[len(categories) - 1] + '\n')
 
             country = 9
-            
+
             while country < 223:
                 curr = modifyData(response.xpath(
-                    '//*[@id="main_table_countries_today"]/tbody[1]/tr[' + str(country) + ']').css('tr ::text').getall())
-                for a in range(len(curr) - 1):
-                    f.write(curr[a] + ',')
-                f.write(curr[len(curr) - 1] + '\n')
+                    '//*[@id="main_table_countries_today"]/tbody[1]/tr[' + str(country) + ']').css('tr ::text').getall())[:-4]
+                if len(curr) == 15:
+                    for a in range(len(curr) - 2):
+                        f.write(curr[a] + ',')
+                    f.write(curr[-2] + '\n')
+                elif len(curr) == 14:
+                    for a in range(len(curr) - 1):
+                        f.write(curr[a] + ',')
+                    f.write(curr[-2] + '\n')
                 country += 1
             f.close()
-        
-        goLog('Corona_Spider: Successfully crawed data from the target website.')
+
+        goLog(file_path, 'Corona_Spider: Successfully crawed data from the target website.')
 
     
     def errback_message(self, failure):

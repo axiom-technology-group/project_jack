@@ -27,9 +27,6 @@ def dashboard():
         if button_msg == 'craw':
             os.system(
                 'scrapy runspider ' + SPIDER_PATH + 'corona_spider.py')
-        elif button_msg == 'upload':
-            da.uploadData(
-                DATA_PATH + '2020-05-11-coronavirus.csv', 5000)
         elif button_msg == 'console':
             return redirect('/dashboard/console')
         elif button_msg == 'search':
@@ -52,7 +49,7 @@ def console():
 @app.route('/dashboard/search', methods=['GET', 'POST'])
 def search():
     if request.method == 'GET':
-        return 'Searched Items:'
+        return 'Search Page'
     elif request.method == 'POST':
         table_name = request.get_json()['table_name']
         column_name = request.get_json()['column_name']
@@ -68,7 +65,7 @@ def rank():
         return send_file(images[0])
     elif request.method == 'POST':
         table_name = request.get_json()['table_name']
-        existing_ranking = re.topCountries(table_name)
+        existing_ranking = da.topCountries(table_name)
         return str(existing_ranking)
 
 
