@@ -6,10 +6,10 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import utils as ut
 from myClasses import Country
-from config import FLAG_PATH
+from config import FLAG_PATH, PSQL_PORT
 
 
-def uploadData(upload_file, port, table_name='default'):
+def uploadData(upload_file, port=PSQL_PORT, table_name='default'):
     try:
         psycopg2.connect(user='postgres', 
                         password='qwertyuiop135', 
@@ -34,7 +34,7 @@ def uploadData(upload_file, port, table_name='default'):
             raise IOError('Cannot read the file.')
         lines = f.readlines()
         f.close()
-        columns = lines[0].replace('/', '_').replace(' ', '_').lower()
+        columns = lines[0].replace('/', '_').replace(' ', '_').lower()[2:]
         columns_list = columns.split(',')
 
         table_name = 'corona_data_' + ut.getDate().replace('-', '_')
@@ -59,6 +59,7 @@ def uploadData(upload_file, port, table_name='default'):
 
         for data in datas:
             data = data.split(',')
+            del data[0]
             data_query = '(' + ut.prepareData(data) + ');'
             cursor.execute(add_data_query + data_query)
 
@@ -75,7 +76,7 @@ def uploadData(upload_file, port, table_name='default'):
     connection.close()
 
 
-def generateGraph(input_csv, file_path, columns=['Country/Other', 'Total Cases'], upload=False):
+def generateGraph(input_csv, file_path, port=PSQL_PORT, columns=['Country/Other', 'Total Cases'], upload=False):
     sns.set(style='whitegrid')
     data = pd.read_csv(input_csv, encoding='ISO-8859-1')
     data = data[columns][data['Total Cases'] > 5000].sort_values(by='Total Cases', ascending=False)
@@ -89,10 +90,10 @@ def generateGraph(input_csv, file_path, columns=['Country/Other', 'Total Cases']
         ut.getDate() + 'COVID-19_Confirmed_Cases.png'
     plt.savefig(file_name)
     if upload:
-        uploadData(file_name, 5000, 'corona_img')
+        uploadData(file_name, port, 'corona_img')
 
 
-def selectData(table_name, port, column=['*'], condition=''):
+def selectData(table_name, port=PSQL_PORT, column=['*'], condition=''):
     try:
         psycopg2.connect(user='postgres',
                          password='qwertyuiop135',
@@ -153,8 +154,8 @@ def plotCountry(data, country, path):
     plt.savefig(path + country + '.png')
 
 
-def topCountries(table_name, top=3):
-    top_list = selectData(table_name, 5000)[0:top]
+def topCountries(table_name, port=PSQL_PORT, top=3):
+    top_list = selectData(table_name, port)[0:top]
     top_countries = list()
     for i in range(len(top_list)):
         top_countries.append(top_list[i][0])
@@ -162,20 +163,31 @@ def topCountries(table_name, top=3):
 
     for item in dics:
         for i in range(len(top_countries)):
-            if top_countries[i] == item['Name']:
-                top_countries[i] = tuple(
-                    (item['Code'], FLAG_PATH + item['Flag']))
+            if top_countries[i] == item['Name'] or top_countries[i] == item['Code']:
+                input_dict = dict()
+                input_dict['Name'] = item['Name']
+                input_dict['Flag'] = 'static/flags/' + getFlag(item['Name'])
+                top_countries[i] = input_dict
 
     return top_countries
 
 
-def getImage(country_name):
-    output_dict = dict()
+def getFlag(country_name):
     dics = [e.value for e in Country]
 
     for item in dics:
-        if item['Name'] == country_name:
-            output_dict = item
+        if item['Name'] == country_name or item['Code'] == country_name:
+            return item['Flag']
 
-    return output_dict['Flag']
+    return -1
+
+
+def getName(country_code):
+    dics = [e.value for e in Country]
+
+    for item in dics:
+        if item['Code'] == country_code:
+            return item['Name']
+    
+    return -1
 

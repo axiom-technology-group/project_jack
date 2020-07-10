@@ -1,6 +1,7 @@
 import scrapy
 from utils import getDate, goLog
-from config import DATA_PATH
+from dataAnalyze import uploadData
+from config import DATA_PATH, LOG_PATH
 
 
 def modifyNames(input_list):
@@ -63,8 +64,7 @@ class CoronaSpider(scrapy.Spider):
 
     def parse(self, response):
         page = response.url.split("/")[-2]
-        file_path = 'C:/Users/zhan1/Desktop/Python/project_jack/corona/'
-        filename = file_path + getDate() + '-%s-worldometers.csv' % page
+        filename = DATA_PATH + getDate() + '-%s-worldometers.csv' % page
         with open(filename, 'w') as f:
             categories = modifyNames(response.css(
                 '#main_table_countries_today th::text')[1:25].getall())
@@ -91,7 +91,8 @@ class CoronaSpider(scrapy.Spider):
                 country += 1
             f.close()
 
-        goLog(file_path, 'Corona_Spider: Successfully crawed data from the target website.')
+        goLog('Corona_Spider: Successfully crawed data from the target website.')
+        uploadData(filename, 5000)
 
     
     def errback_message(self, failure):

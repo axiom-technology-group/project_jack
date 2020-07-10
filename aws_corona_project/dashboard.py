@@ -1,72 +1,66 @@
-from flask import Flask, request, jsonify, url_for, redirect, send_file
+from flask import Flask, request, jsonify, url_for, redirect, send_file, render_template, json
+from datetime import date
 import os
 import dataAnalyze as da
 import utils as ut
 import subprocess
-from config import HTML_PATH, SPIDER_PATH, DATA_PATH
+from config import HTML_PATH, SPIDER_PATH, DATA_PATH, IMAGE_PATH, PORT
 
 existing_ranking = None
+today_date = ""
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='data/static', template_folder='data/static/templates')
+
+
+@app.route('/favicon.ico', methods=['GET'])
+def ico():
+    return url_for('static', filename='images/icon.png')
 
 
 @app.route('/', methods=['GET'])
 def main():
-    return ut.getHTML(HTML_PATH + 'dashboard.html')
+    return render_template('dashboard.html')
 
 
 @app.route('/dashboard', methods=['GET', 'POST'])
 def dashboard():
     if request.method == 'GET':
-        return ut.getHTML(HTML_PATH + 'dashboard.html')
+        return render_template('dashboard.html')
     elif request.method == 'POST':
-        command = request.form['commands']
-        button_msg = request.form['button']
+        country_code = request.form['searched_countries']
+        country_name = da.getName(country_code)
+        selected_countries = 'static/images/' + country_code + '.png'
+        data = list()
+        data.append(dict(selection=country_name))
+        data.append(dict(imgFile=selected_countries))
 
-        if button_msg == 'craw':
-            os.system(
-                'scrapy runspider ' + SPIDER_PATH + 'corona_spider.py')
-        elif button_msg == 'console':
-            return redirect('/dashboard/console')
-        elif button_msg == 'search':
-            return redirect('/dashboard/search')
+        return render_template('dashboard_search.html', data=json.dumps(data))
 
-    return ut.getHTML(HTML_PATH + 'dashboard.html') + 'finished'
+    return render_template('dashboard.html')
 
 
-@app.route('/dashboard/console', methods=['GET', 'POST'])
-def console():
-    if request.method == 'GET':
-        return 'Welcome to console \n' + ut.getHTML(HTML_PATH + 'dashboard_console.html')
-    elif request.method == 'POST':
-        command = request.form['commands']
-        msg = subprocess.run(command, capture_output=True, shell=True)
-        return ut.getHTML(
-            HTML_PATH + 'dashboard_console.html') + '\n' + msg.stdout.decode()
-
-
-@app.route('/dashboard/search', methods=['GET', 'POST'])
-def search():
-    if request.method == 'GET':
-        return 'Search Page'
-    elif request.method == 'POST':
-        table_name = request.get_json()['table_name']
-        column_name = request.get_json()['column_name']
-        condition = request.get_json()['condition']
-        return str(da.selectData(table_name, 5000, column=column_name, condition=condition))
-
-
-@app.route('/dashboard/ranking', methods=['GET', 'POST'])
+@app.route('/dashboard/ranking', methods=['GET'])
 def rank():
     global existing_ranking
+    global today_date
+
     if request.method == 'GET':
-        images = [img[1] for img in existing_ranking]
-        return send_file(images[0])
+        if date.today() != today_date:
+            today_date = str(date.today())
+            table_name = 'corona_data_' + today_date.replace('-', '_')
+            existing_ranking = da.topCountries(table_name)
+        
+        return jsonify(existing_ranking)
+
+
+@app.route('/dashboard/searchCountry', methods=['GET', 'POST'])
+def listCountry():
+    if request.method == 'GET':
+        return ut.getHTML(HTML_PATH + 'dashboard_searchCountry.html')
     elif request.method == 'POST':
-        table_name = request.get_json()['table_name']
-        existing_ranking = da.topCountries(table_name)
-        return str(existing_ranking)
+        country_code = request.form['countries']
+        img_name = country_code + '.png'
+        return ut.getHTML(HTML_PATH + 'dashboard_searchCountry.html') + '\n<Image src="' + IMAGE_PATH + img_name + '">'
 
-
-app.run(port=9999, debug=True)
+app.run(port=PORT)

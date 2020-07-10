@@ -1,0 +1,226 @@
+2020-06-19 22:34:43.376423 - root - INFO - Corona_Spider: Successfully crawed data from the target website.
+2020-07-01 21:36:08.016111 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-01 21:36:29.058866 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-02 21:10:44.865465 - root - INFO - Corona_Spider: Successfully crawed data from the target website.
+2020-07-02 21:14:06.718237 - root - INFO - Corona_Spider: Successfully crawed data from the target website.
+2020-07-02 21:15:15.599434 - root - INFO - Corona_Spider: Successfully crawed data from the target website.
+2020-07-02 21:15:15.758869 - root - ERROR - PostgresSQL_uploadData: Failed to create table.
+2020-07-02 21:18:26.462087 - root - ERROR - PostgresSQL_uploadData: Failed to create table.
+2020-07-02 21:28:09.800740 - root - INFO - PostgresSQL_uploadData: Successfully uploaded data to Database
+2020-07-06 16:25:32.780514 - root - INFO - Corona_Spider: Successfully crawed data from the target website.
+2020-07-06 16:25:33.092127 - root - INFO - PostgresSQL_uploadData: Successfully uploaded data to Database
+2020-07-06 16:27:24.471297 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 16:28:33.712245 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 16:31:04.528217 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:22:29.402594 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:24:00.909702 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:24:21.290747 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:29:46.485879 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:32:14.742020 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:33:29.654310 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:35:01.740685 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:36:29.962141 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:37:33.237703 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:37:33.531256 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:38:22.609414 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:38:48.090213 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:39:30.096104 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:40:14.582799 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:46:47.631675 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:46:48.537098 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:46:48.779239 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:46:49.319359 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:46:49.557836 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:46:49.853265 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:46:50.027415 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:46:50.556963 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:46:50.820895 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:46:51.015922 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:46:51.417213 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:46:51.695822 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:46:52.267370 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:46:52.538386 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:46:53.103914 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:46:53.396886 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:46:53.984376 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:46:54.171711 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:46:54.718842 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:46:54.985925 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:46:55.282593 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:46:55.538682 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:46:56.089905 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:46:56.376994 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:46:56.981304 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:46:57.280820 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:46:57.824296 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:46:58.023876 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:46:58.351501 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:46:58.573747 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:46:59.118394 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:46:59.289845 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 17:58:40.286673 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 22:32:21.773231 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 22:32:58.721906 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 22:32:59.007010 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 22:40:49.273306 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 22:40:49.430478 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 22:41:18.131179 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 22:41:18.268810 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 22:41:26.594703 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 22:50:55.764679 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 22:51:53.235712 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 22:53:11.832587 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 22:54:38.392397 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 22:54:56.236221 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 22:56:27.215653 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:00:13.502859 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:01:07.053036 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:01:07.864340 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:01:08.018930 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:01:08.291199 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:01:08.447293 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:01:08.706602 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:01:08.860750 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:01:09.127564 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:01:09.280665 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:01:09.575069 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:01:09.723051 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:01:09.983411 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:01:10.161543 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:01:10.435803 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:01:10.652222 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:01:10.938970 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:01:11.069621 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:02:18.202205 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:02:18.743360 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:02:19.189496 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:02:19.638400 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:02:19.869796 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:02:20.256291 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:02:20.368502 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:02:20.769386 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:02:21.033195 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:02:21.211465 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:02:21.498905 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:02:21.640064 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:02:21.888219 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:02:22.062954 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:02:22.297590 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:02:22.480618 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:02:22.700259 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:02:22.887764 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:02:23.119174 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:02:23.307766 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:02:23.565767 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:02:23.748792 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:02:23.974871 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:02:24.283694 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:02:24.440859 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:05:04.730616 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:10:42.161832 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:13:02.388617 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:13:33.340400 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:18:18.283971 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:24:41.579926 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:24:47.527341 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:26:22.048297 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:40:07.100752 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:40:13.940291 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:40:41.697719 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:41:28.902517 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:41:49.452589 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:42:03.586569 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:42:33.108966 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:51:22.010211 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:51:45.754769 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:52:00.475548 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:52:41.008994 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:52:52.835098 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:53:44.554584 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:53:53.683403 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:54:44.050824 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:54:55.912746 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:56:08.473849 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-06 23:59:00.338513 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-07 00:04:45.945647 - root - INFO - Corona_Spider: Successfully crawed data from the target website.
+2020-07-07 00:04:46.265275 - root - INFO - PostgresSQL_uploadData: Successfully uploaded data to Database
+2020-07-07 00:04:56.446947 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-07 00:06:19.696883 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-07 00:06:43.274173 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-07 00:07:11.796268 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-07 00:18:53.083010 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-07 00:19:06.043734 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-07 00:19:21.122384 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-07 00:20:58.078968 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-07 00:21:04.507240 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-07 00:21:43.001015 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-07 00:22:00.215283 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-07 00:26:16.536815 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-07 00:28:10.811998 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-07 00:28:30.312517 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-07 00:30:20.128799 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-07 00:31:08.017744 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-07 00:33:03.701022 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-07 00:33:57.859901 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-07 00:34:05.183846 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-07 00:35:21.482165 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-07 00:38:10.097887 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-07 00:39:06.460659 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-07 00:39:20.727906 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-07 00:43:20.325268 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-07 23:23:37.129384 - root - INFO - Corona_Spider: Successfully crawed data from the target website.
+2020-07-07 23:23:37.467084 - root - ERROR - PostgresSQL_uploadData: Failed to create table.
+2020-07-08 00:44:46.807781 - root - INFO - Corona_Spider: Successfully crawed data from the target website.
+2020-07-08 00:44:47.028972 - root - INFO - PostgresSQL_uploadData: Successfully uploaded data to Database
+2020-07-08 00:58:05.298945 - root - INFO - Corona_Spider: Successfully crawed data from the target website.
+2020-07-08 00:58:05.443637 - root - ERROR - PostgresSQL_uploadData: Failed to create table.
+2020-07-08 01:08:05.452051 - root - INFO - Corona_Spider: Successfully crawed data from the target website.
+2020-07-08 01:08:05.600748 - root - ERROR - PostgresSQL_uploadData: Failed to create table.
+2020-07-08 13:45:26.552361 - root - INFO - Corona_Spider: Successfully crawed data from the target website.
+2020-07-08 13:45:26.619170 - root - ERROR - PostgresSQL_uploadData: Failed to create table.
+2020-07-08 19:54:12.436567 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 19:57:54.519556 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 19:59:19.528678 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 20:07:24.222886 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 20:14:00.834317 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 20:22:15.287721 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 20:35:09.539931 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 20:40:26.585370 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 20:40:47.761188 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 20:43:42.700069 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 20:44:06.091910 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 20:47:06.424908 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 20:47:30.325306 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 20:48:13.490689 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 21:16:44.229897 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 21:22:06.023590 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 21:23:23.092789 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 21:43:52.052527 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 21:49:48.186830 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 21:50:59.631485 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 21:51:52.002514 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 21:53:12.322469 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 21:53:58.153682 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 21:58:57.110853 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 22:00:37.623886 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 22:01:45.761004 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 22:02:37.509939 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 22:45:36.124529 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 22:53:11.178183 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 22:54:21.789939 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 22:54:56.527917 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 22:56:33.279908 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 22:58:56.108464 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 22:59:55.594742 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 23:00:31.353161 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 23:01:12.939553 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 23:04:42.773757 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 23:10:31.496385 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 23:19:58.812217 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 23:21:01.691113 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 23:25:42.950863 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-08 23:25:50.226891 - root - INFO - PostgresSQL_selectData: Successfully selected the data from table.
+2020-07-09 18:52:11.086136 - root - INFO - Corona_Spider: Successfully crawed data from the target website.
+2020-07-09 18:52:11.192237 - root - INFO - PostgresSQL_uploadData: Successfully uploaded data to Database
+2020-07-10 14:46:27.156778 - root - INFO - Corona_Spider: Successfully crawed data from the target website.
+2020-07-10 14:46:27.421459 - root - INFO - PostgresSQL_uploadData: Successfully uploaded data to Database

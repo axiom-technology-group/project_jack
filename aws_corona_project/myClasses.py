@@ -290,8 +290,8 @@ class Country(Enum):
     UKRAINE = {'Name': 'Ukraine', 'Code': 'UKR', 'Flag': 'ua.png'}
     UNITED_ARAB_EMIRATES = {
         'Name': 'United_Arab_Emirates', 'Code': 'ARE', 'Flag': 'ae.png'}
-    UNITED_KINGDOM = {'Name': 'UK', 'Code': 'GBR', 'Flag': 'gb.png'}
-    UNITED_STATES = {'Name': 'USA', 'Code': 'USA', 'Flag': 'us.png'}
+    UNITED_KINGDOM = {'Name': 'United Kingdom', 'Code': 'GBR', 'Flag': 'gb.png'}
+    UNITED_STATES = {'Name': 'United States', 'Code': 'USA', 'Flag': 'us.png'}
     URUGUAY = {'Name': 'Uruguay', 'Code': 'URY', 'Flag': 'uy.png'}
     UZBEKISTAN = {'Name': 'Uzbekistan', 'Code': 'UZB', 'Flag': 'uz.png'}
     VANUATU = {'Name': 'Vanuatu', 'Code': 'VUT', 'Flag': 'vu.png'}
