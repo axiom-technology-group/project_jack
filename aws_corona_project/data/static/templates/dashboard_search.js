@@ -268,7 +268,8 @@ class SearchButton extends React.Component {
                 <div>
                     <form action="http://localhost:9999/dashboard" method="post">
                         <label>Choose a country</label>
-                        <select name="searched_countries" onChange={this.state.selection}>
+                        <select name="searched_countries">
+                            <option selected>{this.state.selection}</option>
                             {this.state.countryNames.map((country) => <option value={country.Code}>{country.Name}</option>)}
                         </select>
                         <p><input type="submit" name="submit" value="Submit"></input></p>
@@ -309,7 +310,7 @@ class ImageComponent extends React.Component {
     render() {
         return (
             <div>
-                <img src={this.props.imgFile} />
+                <img src={this.props.imgfile} />
             </div>
         );
     }
@@ -320,11 +321,12 @@ class App extends React.Component {
         return (
             <div>
                 <SearchButton selection={this.props.selection}/>
-                <ImageComponent imgFile={this.props.imgFile} />
+                <ImageComponent imgfile={this.props.imgfile} />
                 <RankingTopThree />
             </div>
         );
     }
 }
 
-ReactDOM.render(<App imgFile={data.imgFile} selection={data.selection} />, document.getElementById('image'))
+var root = document.getElementById('image');
+ReactDOM.render(<App imgfile={root.getAttribute('imgfile')} selection={root.getAttribute('selection')} />, root)

@@ -31,11 +31,8 @@ def dashboard():
         country_code = request.form['searched_countries']
         country_name = da.getName(country_code)
         selected_countries = 'static/images/' + country_code + '.png'
-        data = list()
-        data.append(dict(selection=country_name))
-        data.append(dict(imgFile=selected_countries))
 
-        return render_template('dashboard_search.html', data=json.dumps(data))
+        return render_template('dashboard_search.html', imgfile=selected_countries, selection=country_name)
 
     return render_template('dashboard.html')
 
