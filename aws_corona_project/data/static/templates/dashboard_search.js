@@ -299,6 +299,9 @@ class RankingTopThree extends React.Component {
         return (
             <div>
                 <p>
+                    Top 3 Countries
+                </p>
+                <p>
                     {this.state.rankings.map((country) => <p><img src={country.Flag} /></p>)}
                 </p>
             </div>

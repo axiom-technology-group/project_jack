@@ -1,7 +1,7 @@
 import os
 import datetime
 from myClasses import MyLogging
-from config import LOG_PATH
+from config import LOG_PATH, DATA_PATH
 
 def goLog(
         script, log_path=LOG_PATH, level='info', mode='w', max_size=10000000):
@@ -97,16 +97,6 @@ def prepareData(input_list):
         return output + "'" + input_list[len(input_list) - 1] + "'"
 
 
-def getHTML(file_path):
-    try:
-        f = open(file_path)
-    except:
-        raise FileNotFoundError('File does not exist.')
-    html = f.read()
-    f.close()
-    return html
-
-
 def getList(input_list):
     if len(input_list) == 0:
         return ''
@@ -115,3 +105,18 @@ def getList(input_list):
         for element in input_list:
             output += element + ', '
         return output[:-2]
+
+
+def getTableName(version='csv', date=''):
+    today = str(datetime.date.today())
+
+    if version == 'csv' and date == '':
+        output = today + '-coronavirus-worldometers.csv'
+    elif version == 'psql' and date == '':
+        output = 'corona_data_' + today.replace('-', '_')
+    elif version == 'csv':
+        output = date + '-coronavirus-worldometers.csv'
+    elif version == 'psql':
+        output = 'corona_data_' + date.replace('-', '_')
+
+    return output

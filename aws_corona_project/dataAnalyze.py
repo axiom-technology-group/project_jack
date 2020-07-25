@@ -9,7 +9,7 @@ from myClasses import Country
 from config import FLAG_PATH, PSQL_PORT
 
 
-def uploadData(upload_file, port=PSQL_PORT, table_name='default'):
+def uploadData(upload_file, port=PSQL_PORT, table_name='default', data=''):
     try:
         psycopg2.connect(user='postgres', 
                         password='qwertyuiop135', 
@@ -37,7 +37,10 @@ def uploadData(upload_file, port=PSQL_PORT, table_name='default'):
         columns = lines[0].replace('/', '_').replace(' ', '_').lower()[2:]
         columns_list = columns.split(',')
 
-        table_name = 'corona_data_' + ut.getDate().replace('-', '_')
+        if date == '':
+            table_name = 'corona_data_' + ut.getDate().replace('-', '_')
+        else:
+            table_name = 'corona_data_' + date
         create_table_query = 'CREATE TABLE ' + table_name + ' ('
 
         for column in columns_list:
@@ -166,17 +169,63 @@ def topCountries(table_name, port=PSQL_PORT, top=3):
             if top_countries[i] == item['Name'] or top_countries[i] == item['Code']:
                 input_dict = dict()
                 input_dict['Name'] = item['Name']
-                input_dict['Flag'] = 'static/flags/' + getFlag(item['Name'])
+                input_dict['Flag'] = 'static/flags/' + str(getFlag(item['Name']))
                 top_countries[i] = input_dict
 
     return top_countries
 
 
+def getColumnNames(table_name, port=PSQL_PORT):
+    search_query = "SELECT column_name FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name = '" + table_name + "';"
+
+    try:
+        psycopg2.connect(user='postgres',
+                         password='qwertyuiop135',
+                         host='127.0.0.1',
+                         port=port,
+                         database='postgres')
+    except:
+        ut.goLog('PostgresSQL_uploadData: Failed to connect to PSQL', level='error')
+        return
+
+    connection = psycopg2.connect(user='postgres',
+                                  password='qwertyuiop135',
+                                  host='127.0.0.1',
+                                  port=port,
+                                  database='postgres')
+    cursor = connection.cursor()
+    cursor.execute(search_query)
+    records = cursor.fetchall()
+
+    return [desc[0] for desc in records]
+
+
+def mergeDict(columns, data, insert_img=False):
+    if len(columns) != len(data):
+        raise ValueError('Different length')
+
+    output = dict()
+    for i in range(len(columns)):
+        output[columns[i]] = data[i]
+        if insert_img:
+            country = data[0]
+            flag = getFlag(country)
+            if flag == -1:
+                output['flag'] = 'static/flags/-1.png'
+            else:
+                output['flag'] = 'static/flags/' + str(getFlag(country))
+    
+    return output
+
+
 def getFlag(country_name):
     dics = [e.value for e in Country]
+    country = country_name.lower()
 
     for item in dics:
-        if item['Name'] == country_name or item['Code'] == country_name:
+        if item['Name'].lower() == country or item['Code'].lower() == country:
+            return item['Flag']
+        elif 'special' in item and item['special'].lower() == country:
             return item['Flag']
 
     return -1
@@ -188,6 +237,35 @@ def getName(country_code):
     for item in dics:
         if item['Code'] == country_code:
             return item['Name']
-    
+
     return -1
+
+
+def getTotal(date=''):
+    output = dict()
+    total_cases = selectData(ut.getTableName(version='psql', date=date), column=['total_cases'])
+    total_cases = [int(item[0]) for item in total_cases]
+    output['total_cases'] = sum(total_cases)
+
+    death = [item[0] for item in selectData(
+        ut.getTableName(version='psql', date=date), column=['total_deaths'])]
+    death = list(filter(lambda str: str != 'N/A' and str != '', death))
+    death = [int(item) for item in death]
+    output['total_death'] = sum(death)
+
+    new_cases = selectData(ut.getTableName(
+        version='psql', date=date), column=['new_cases'])
+    new_cases = [(item[0])[1:] for item in new_cases]
+    new_cases = list(filter(lambda str: str != '/A' and str != '', new_cases))
+    new_cases = [int(item) for item in new_cases]
+    output['new_cases'] = sum(new_cases)
+
+    recovery = [item[0] for item in selectData(ut.getTableName(
+        version='psql', date=date), column=['total_recovered'])]
+    recovery = list(filter(lambda str: str != 'N/A' and str != '', recovery))
+    recovery = [int(item) for item in recovery]
+    output['total_recovered'] = sum(recovery)
+    
+    return output
+
 

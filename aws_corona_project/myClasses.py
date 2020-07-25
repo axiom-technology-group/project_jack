@@ -36,13 +36,13 @@ class Country(Enum):
     AFGHANISTAN = {'Name': 'Afghanistan', 'Code': 'AFG', 'Flag': 'af.png'}
     ALBANIA = {'Name': 'Albania', 'Code': 'ALB', 'Flag': 'al.png'}
     ALGERIA = {'Name': 'Algeria', 'Code': 'DZA', 'Flag': 'dz.png'}
-    AMERICAN_SAMOA = {'Name': 'American_Samoa',
+    AMERICAN_SAMOA = {'Name': 'American Samoa',
                       'Code': 'ASM', 'Flag': 'as.png'}
     ANDORRA = {'Name': 'Andorra', 'Code': 'AND', 'Flag': 'ad.png'}
     ANGOLA = {'Name': 'Angola', 'Code': 'AGO', 'Flag': 'ao.png'}
     ANGUILLA = {'Name': 'Anguilla', 'Code': 'AIA', 'Flag': 'ai.png'}
     ANTARCTICA = {'Name': 'Antarctica', 'Code': 'ATA', 'Flag': 'aq.png'}
-    ANTIGUA_AND_BARBUDA = {'Name': 'Antigua_and_Barbuda',
+    ANTIGUA_AND_BARBUDA = {'Name': 'Antigua and Barbuda',
                            'Code': 'ATG', 'Flag': 'ag.png'}
     ARGENTINA = {'Name': 'Argentina', 'Code': 'ARG', 'Flag': 'ar.png'}
     ARMENIA = {'Name': 'Armenia', 'Code': 'ARM', 'Flag': 'am.png'}
@@ -62,64 +62,65 @@ class Country(Enum):
     BHUTAN = {'Name': 'Bhutan', 'Code': 'BTN', 'Flag': 'bt.png'}
     BOLIVIA = {'Name': 'Bolivia', 'Code': 'BOL', 'Flag': 'bo.png'}
     BOSNIA_AND_HERZEGOVINA = {
-        'Name': 'Bosnia_and_Herzegovina', 'Code': 'BIH', 'Flag': 'ba.png'}
+        'Name': 'Bosnia and Herzegovina', 'Code': 'BIH', 'Flag': 'ba.png'}
     BOTSWANA = {'Name': 'Botswana', 'Code': 'BWA', 'Flag': 'bw.png'}
     BRAZIL = {'Name': 'Brazil', 'Code': 'BRA', 'Flag': 'br.png'}
     BRITISH_INDIAN_OCEAN_TERRITORY = {
-        'Name': 'British_Indian_Ocean_Territory', 'Code': 'IOT', 'Flag': 'io.png'}
+        'Name': 'British Indian Ocean Territory', 'Code': 'IOT', 'Flag': 'io.png'}
     BRITISH_VIRGIN_ISLANDS = {
-        'Name': 'British_Virgin_Islands', 'Code': 'VGB', 'Flag': 'vg.png'}
+        'Name': 'British Virgin Islands', 'Code': 'VGB', 'Flag': 'vg.png'}
     BRUNEI = {'Name': 'Brunei', 'Code': 'BRN', 'Flag': 'bn.png'}
     BULGARIA = {'Name': 'Bulgaria', 'Code': 'BGR', 'Flag': 'bg.png'}
-    BURKINA_FASO = {'Name': 'Burkina_Faso', 'Code': 'BFA', 'Flag': 'bf.png'}
+    BURKINA_FASO = {'Name': 'Burkina Faso', 'Code': 'BFA', 'Flag': 'bf.png'}
     BURUNDI = {'Name': 'Burundi', 'Code': 'BDI', 'Flag': 'bi.png'}
     CAMBODIA = {'Name': 'Cambodia', 'Code': 'KHM', 'Flag': 'kh.png'}
     CAMEROON = {'Name': 'Cameroon', 'Code': 'CMR', 'Flag': 'cm.png'}
     CANADA = {'Name': 'Canada', 'Code': 'CAN', 'Flag': 'ca.png'}
-    CAPE_VERDE = {'Name': 'Cape_Verde', 'Code': 'CPV', 'Flag': 'cv.png'}
-    CAYMAN_ISLANDS = {'Name': 'Cayman_Islands',
+    CAPE_VERDE = {'Name': 'Cape Verde', 'Code': 'CPV', 'Flag': 'cv.png', 'special':'Cabo Verde'}
+    CAYMAN_ISLANDS = {'Name': 'Cayman Islands',
                       'Code': 'CYM', 'Flag': 'ky.png'}
     CENTRAL_AFRICAN_REPUBLIC = {
-        'Name': 'Central_African_Republic', 'Code': 'CAF', 'Flag': 'cf.png'}
+        'Name': 'Central African Republic', 'Code': 'CAF', 'Flag': 'cf.png', 'special':'CAR'}
     CHAD = {'Name': 'Chad', 'Code': 'TCD', 'Flag': 'td.png'}
     CHILE = {'Name': 'Chile', 'Code': 'CHL', 'Flag': 'cl.png'}
     CHINA = {'Name': 'China', 'Code': 'CHN', 'Flag': 'cn.png'}
-    CHRISTMAS_ISLAND = {'Name': 'Christmas_Island',
+    CHRISTMAS_ISLAND = {'Name': 'Christmas Island',
                         'Code': 'CXR', 'Flag': 'cx.png'}
-    COCOS_ISLANDS = {'Name': 'Cocos_Islands', 'Code': 'CCK', 'Flag': 'cc.png'}
+    COCOS_ISLANDS = {'Name': 'Cocos Islands', 'Code': 'CCK', 'Flag': 'cc.png'}
     COLOMBIA = {'Name': 'Colombia', 'Code': 'COL', 'Flag': 'co.png'}
     COMOROS = {'Name': 'Comoros', 'Code': 'COM', 'Flag': 'km.png'}
-    COOK_ISLANDS = {'Name': 'Cook_Islands', 'Code': 'COK', 'Flag': 'ck.png'}
-    COSTA_RICA = {'Name': 'Costa_Rica', 'Code': 'CRI', 'Flag': 'cr.png'}
+    COOK_ISLANDS = {'Name': 'Cook Islands', 'Code': 'COK', 'Flag': 'ck.png'}
+    COSTA_RICA = {'Name': 'Costa Rica', 'Code': 'CRI', 'Flag': 'cr.png'}
     CROATIA = {'Name': 'Croatia', 'Code': 'HRV', 'Flag': 'hr.png'}
     CUBA = {'Name': 'Cuba', 'Code': 'CUB', 'Flag': 'cu.png'}
-    CURACAO = {'Name': 'Curacao', 'Code': 'CUW', 'Flag': 'cw.png'}
+    CURACAO = {'Name': 'Curacao', 'Code': 'CUW',
+               'Flag': 'cw.png', 'special': 'Curaçao'}
     CYPRUS = {'Name': 'Cyprus', 'Code': 'CYP', 'Flag': 'cy.png'}
-    CZECH_REPUBLIC = {'Name': 'Czech_Republic',
-                      'Code': 'CZE', 'Flag': 'cz.png'}
+    CZECH_REPUBLIC = {'Name': 'Czech Republic',
+                      'Code': 'CZE', 'Flag': 'cz.png', 'special':'Czechia'}
     DEMOCRATIC_REPUBLIC_OF_THE_CONGO = {
-        'Name': 'Democratic_Republic_of_the_Congo', 'Code': 'COD', 'Flag': 'cd.png'}
+        'Name': 'Democratic Republic of the Congo', 'Code': 'COD', 'Flag': 'cd.png', 'special':'DRC'}
     DENMARK = {'Name': 'Denmark', 'Code': 'DNK', 'Flag': 'dk.png'}
     DJIBOUTI = {'Name': 'Djibouti', 'Code': 'DJI', 'Flag': 'dj.png'}
     DOMINICA = {'Name': 'Dominica', 'Code': 'DMA', 'Flag': 'dm.png'}
-    DOMINICAN_REPUBLIC = {'Name': 'Dominican_Republic',
+    DOMINICAN_REPUBLIC = {'Name': 'Dominican Republic',
                           'Code': 'DOM', 'Flag': 'do.png'}
-    EAST_TIMOR = {'Name': 'East_Timor', 'Code': 'TLS', 'Flag': 'tl.png'}
+    EAST_TIMOR = {'Name': 'East Timor', 'Code': 'TLS', 'Flag': 'tl.png', 'special':'Timor-Leste'}
     ECUADOR = {'Name': 'Ecuador', 'Code': 'ECU', 'Flag': 'ec.png'}
     EGYPT = {'Name': 'Egypt', 'Code': 'EGY', 'Flag': 'eg.png'}
-    EL_SALVADOR = {'Name': 'El_Salvador', 'Code': 'SLV', 'Flag': 'sv.png'}
-    EQUATORIAL_GUINEA = {'Name': 'Equatorial_Guinea',
+    EL_SALVADOR = {'Name': 'El Salvador', 'Code': 'SLV', 'Flag': 'sv.png'}
+    EQUATORIAL_GUINEA = {'Name': 'Equatorial Guinea',
                          'Code': 'GNQ', 'Flag': 'gq.png'}
     ERITREA = {'Name': 'Eritrea', 'Code': 'ERI', 'Flag': 'er.png'}
     ESTONIA = {'Name': 'Estonia', 'Code': 'EST', 'Flag': 'ee.png'}
     ETHIOPIA = {'Name': 'Ethiopia', 'Code': 'ETH', 'Flag': 'et.png'}
-    FALKLAND_ISLANDS = {'Name': 'Falkland_Islands',
+    FALKLAND_ISLANDS = {'Name': 'Falkland Islands',
                         'Code': 'FLK', 'Flag': 'fk.png'}
-    FAROE_ISLANDS = {'Name': 'Faroe_Islands', 'Code': 'FRO', 'Flag': 'fo.png'}
+    FAROE_ISLANDS = {'Name': 'Faroe Islands', 'Code': 'FRO', 'Flag': 'fo.png'}
     FIJI = {'Name': 'Fiji', 'Code': 'FJI', 'Flag': 'fj.png'}
     FINLAND = {'Name': 'Finland', 'Code': 'FIN', 'Flag': 'fi.png'}
     FRANCE = {'Name': 'France', 'Code': 'FRA', 'Flag': 'fr.png'}
-    FRENCH_POLYNESIA = {'Name': 'French_Polynesia',
+    FRENCH_POLYNESIA = {'Name': 'French Polynesia',
                         'Code': 'PYF', 'Flag': 'pf.png'}
     GABON = {'Name': 'Gabon', 'Code': 'GAB', 'Flag': 'ga.png'}
     GAMBIA = {'Name': 'Gambia', 'Code': 'GMB', 'Flag': 'gm.png'}
@@ -138,7 +139,7 @@ class Country(Enum):
     GUYANA = {'Name': 'Guyana', 'Code': 'GUY', 'Flag': 'gy.png'}
     HAITI = {'Name': 'Haiti', 'Code': 'HTI', 'Flag': 'ht.png'}
     HONDURAS = {'Name': 'Honduras', 'Code': 'HND', 'Flag': 'hn.png'}
-    HONG_KONG = {'Name': 'Hong_Kong', 'Code': 'HKG', 'Flag': 'hk.png'}
+    HONG_KONG = {'Name': 'Hong Kong', 'Code': 'HKG', 'Flag': 'hk.png'}
     HUNGARY = {'Name': 'Hungary', 'Code': 'HUN', 'Flag': 'hu.png'}
     ICELAND = {'Name': 'Iceland', 'Code': 'ISL', 'Flag': 'is.png'}
     INDIA = {'Name': 'India', 'Code': 'IND', 'Flag': 'in.png'}
@@ -146,10 +147,10 @@ class Country(Enum):
     IRAN = {'Name': 'Iran', 'Code': 'IRN', 'Flag': 'ir.png'}
     IRAQ = {'Name': 'Iraq', 'Code': 'IRQ', 'Flag': 'iq.png'}
     IRELAND = {'Name': 'Ireland', 'Code': 'IRL', 'Flag': 'ie.png'}
-    ISLE_OF_MAN = {'Name': 'Isle_of_Man', 'Code': 'IMN', 'Flag': 'im.png'}
+    ISLE_OF_MAN = {'Name': 'Isle of Man', 'Code': 'IMN', 'Flag': 'im.png'}
     ISRAEL = {'Name': 'Israel', 'Code': 'ISR', 'Flag': 'il.png'}
     ITALY = {'Name': 'Italy', 'Code': 'ITA', 'Flag': 'it.png'}
-    IVORY_COAST = {'Name': 'Ivory_Coast', 'Code': 'CIV', 'Flag': 'ci.png'}
+    IVORY_COAST = {'Name': 'Ivory Coast', 'Code': 'CIV', 'Flag': 'ci.png'}
     JAMAICA = {'Name': 'Jamaica', 'Code': 'JAM', 'Flag': 'jm.png'}
     JAPAN = {'Name': 'Japan', 'Code': 'JPN', 'Flag': 'jp.png'}
     JERSEY = {'Name': 'Jersey', 'Code': 'JEY', 'Flag': 'je.png'}
@@ -169,15 +170,15 @@ class Country(Enum):
     LIECHTENSTEIN = {'Name': 'Liechtenstein', 'Code': 'LIE', 'Flag': 'li.png'}
     LITHUANIA = {'Name': 'Lithuania', 'Code': 'LTU', 'Flag': 'lt.png'}
     LUXEMBOURG = {'Name': 'Luxembourg', 'Code': 'LUX', 'Flag': 'lu.png'}
-    MACAU = {'Name': 'Macau', 'Code': 'MAC', 'Flag': 'mo.png'}
-    MACEDONIA = {'Name': 'Macedonia', 'Code': 'MKD', 'Flag': 'mk.png'}
+    MACAU = {'Name': 'Macau', 'Code': 'MAC', 'Flag': 'mo.png', 'special':'Macao'}
+    MACEDONIA = {'Name': 'Macedonia', 'Code': 'MKD', 'Flag': 'mk.png', 'special':'North Macedonia'}
     MADAGASCAR = {'Name': 'Madagascar', 'Code': 'MDG', 'Flag': 'mg.png'}
     MALAWI = {'Name': 'Malawi', 'Code': 'MWI', 'Flag': 'mw.png'}
     MALAYSIA = {'Name': 'Malaysia', 'Code': 'MYS', 'Flag': 'my.png'}
     MALDIVES = {'Name': 'Maldives', 'Code': 'MDV', 'Flag': 'mv.png'}
     MALI = {'Name': 'Mali', 'Code': 'MLI', 'Flag': 'ml.png'}
     MALTA = {'Name': 'Malta', 'Code': 'MLT', 'Flag': 'mt.png'}
-    MARSHALL_ISLANDS = {'Name': 'Marshall_Islands',
+    MARSHALL_ISLANDS = {'Name': 'Marshall Islands',
                         'Code': 'MHL', 'Flag': 'mh.png'}
     MAURITANIA = {'Name': 'Mauritania', 'Code': 'MRT', 'Flag': 'mr.png'}
     MAURITIUS = {'Name': 'Mauritius', 'Code': 'MUS', 'Flag': 'mu.png'}
@@ -195,25 +196,25 @@ class Country(Enum):
     NAMIBIA = {'Name': 'Namibia', 'Code': 'NAM', 'Flag': 'na.png'}
     NAURU = {'Name': 'Nauru', 'Code': 'NRU', 'Flag': 'nr.png'}
     NEPAL = {'Name': 'Nepal', 'Code': 'NPL', 'Flag': 'np.png'}
-    NETHERLANDS = {'Name': 'Netherlands', 'Code': 'NLD', 'Flag': 'nl.png'}
+    NETHERLANDS = {'Name': 'Netherlands', 'Code': 'NLD', 'Flag': 'nl.png', 'special':'Caribbean Netherlands'}
     NETHERLANDS_ANTILLES = {
-        'Name': 'Netherlands_Antilles', 'Code': 'ANT', 'Flag': 'an.png'}
-    NEW_CALEDONIA = {'Name': 'New_Caledonia', 'Code': 'NCL', 'Flag': 'nc.png'}
-    NEW_ZEALAND = {'Name': 'New_Zealand', 'Code': 'NZL', 'Flag': 'nz.png'}
+        'Name': 'Netherlands Antilles', 'Code': 'ANT', 'Flag': 'an.png'}
+    NEW_CALEDONIA = {'Name': 'New Caledonia', 'Code': 'NCL', 'Flag': 'nc.png'}
+    NEW_ZEALAND = {'Name': 'New Zealand', 'Code': 'NZL', 'Flag': 'nz.png'}
     NICARAGUA = {'Name': 'Nicaragua', 'Code': 'NIC', 'Flag': 'ni.png'}
     NIGER = {'Name': 'Niger', 'Code': 'NER', 'Flag': 'ne.png'}
     NIGERIA = {'Name': 'Nigeria', 'Code': 'NGA', 'Flag': 'ng.png'}
     NIUE = {'Name': 'Niue', 'Code': 'NIU', 'Flag': 'nu.png'}
-    NORTH_KOREA = {'Name': 'North_Korea', 'Code': 'PRK', 'Flag': 'kp.png'}
+    NORTH_KOREA = {'Name': 'North Korea', 'Code': 'PRK', 'Flag': 'kp.png'}
     NORTHERN_MARIANA_ISLANDS = {
-        'Name': 'Northern_Mariana_Islands', 'Code': 'MNP', 'Flag': 'mp.png'}
+        'Name': 'Northern Mariana Islands', 'Code': 'MNP', 'Flag': 'mp.png'}
     NORWAY = {'Name': 'Norway', 'Code': 'NOR', 'Flag': 'no.png'}
     OMAN = {'Name': 'Oman', 'Code': 'OMN', 'Flag': 'om.png'}
     PAKISTAN = {'Name': 'Pakistan', 'Code': 'PAK', 'Flag': 'pk.png'}
     PALAU = {'Name': 'Palau', 'Code': 'PLW', 'Flag': 'pw.png'}
     PALESTINE = {'Name': 'Palestine', 'Code': 'PSE', 'Flag': 'ps.png'}
     PANAMA = {'Name': 'Panama', 'Code': 'PAN', 'Flag': 'pa.png'}
-    PAPUA_NEW_GUINEA = {'Name': 'Papua_New_Guinea',
+    PAPUA_NEW_GUINEA = {'Name': 'Papua New Guinea',
                         'Code': 'PNG', 'Flag': 'pg.png'}
     PARAGUAY = {'Name': 'Paraguay', 'Code': 'PRY', 'Flag': 'py.png'}
     PERU = {'Name': 'Peru', 'Code': 'PER', 'Flag': 'pe.png'}
@@ -221,50 +222,52 @@ class Country(Enum):
     PITCAIRN = {'Name': 'Pitcairn', 'Code': 'PCN', 'Flag': 'pn.png'}
     POLAND = {'Name': 'Poland', 'Code': 'POL', 'Flag': 'pl.png'}
     PORTUGAL = {'Name': 'Portugal', 'Code': 'PRT', 'Flag': 'pt.png'}
-    PUERTO_RICO = {'Name': 'Puerto_Rico', 'Code': 'PRI', 'Flag': 'pr.png'}
+    PUERTO_RICO = {'Name': 'Puerto Rico', 'Code': 'PRI', 'Flag': 'pr.png'}
     QATAR = {'Name': 'Qatar', 'Code': 'QAT', 'Flag': 'qa.png'}
     REPUBLIC_OF_THE_CONGO = {
-        'Name': 'Republic_of_the_Congo', 'Code': 'COG', 'Flag': 'cg.png'}
-    REUNION = {'Name': 'Reunion', 'Code': 'REU', 'Flag': 're.png'}
+        'Name': 'Republic of the Congo', 'Code': 'COG', 'Flag': 'cg.png'}
+    REUNION = {'Name': 'Reunion', 'Code': 'REU',
+               'Flag': 're.png', 'special': 'Réunion'}
     ROMANIA = {'Name': 'Romania', 'Code': 'ROU', 'Flag': 'ro.png'}
     RUSSIA = {'Name': 'Russia', 'Code': 'RUS', 'Flag': 'ru.png'}
     RWANDA = {'Name': 'Rwanda', 'Code': 'RWA', 'Flag': 'rw.png'}
-    SAINT_BARTHELEMY = {'Name': 'Saint_Barthelemy',
-                        'Code': 'BLM', 'Flag': 'bl.png'}
-    SAINT_HELENA = {'Name': 'Saint_Helena', 'Code': 'SHN', 'Flag': 'sh.png'}
+    SAINT_BARTHELEMY = {'Name': 'Saint Barthelemy',
+                        'Code': 'BLM', 'Flag': 'bl.png', 'special':'St. Barth'}
+    SAINT_HELENA = {'Name': 'Saint Helena', 'Code': 'SHN', 'Flag': 'sh.png'}
     SAINT_KITTS_AND_NEVIS = {
-        'Name': 'Saint_Kitts_and_Nevis', 'Code': 'KNA', 'Flag': 'kn.png'}
-    SAINT_LUCIA = {'Name': 'Saint_Lucia', 'Code': 'LCA', 'Flag': 'lc.png'}
-    SAINT_MARTIN = {'Name': 'Saint_Martin', 'Code': 'MAF', 'Flag': 'mf.png'}
+        'Name': 'Saint Kitts and Nevis', 'Code': 'KNA', 'Flag': 'kn.png'}
+    SAINT_LUCIA = {'Name': 'Saint Lucia', 'Code': 'LCA', 'Flag': 'lc.png'}
+    SAINT_MARTIN = {'Name': 'Saint Martin', 'Code': 'MAF', 'Flag': 'mf.png'}
     SAINT_PIERRE_AND_MIQUELON = {
-        'Name': 'Saint_Pierre_and_Miquelon', 'Code': 'SPM', 'Flag': 'pm.png'}
+        'Name': 'Saint Pierre and Miquelon', 'Code': 'SPM', 'Flag': 'pm.png', 'special':'Saint Pierre Miquelon'}
     SAINT_VINCENT_AND_THE_GRENADINES = {
-        'Name': 'Saint_Vincent_and_the_Grenadines', 'Code': 'VCT', 'Flag': 'vc.png'}
+        'Name': 'Saint Vincent and the Grenadines', 'Code': 'VCT', 'Flag': 'vc.png', 'special': 'St. Vincent Grenadines'}
     SAMOA = {'Name': 'Samoa', 'Code': 'WSM', 'Flag': 'ws.png'}
-    SAN_MARINO = {'Name': 'San_Marino', 'Code': 'SMR', 'Flag': 'sm.png'}
+    SAN_MARINO = {'Name': 'San Marino', 'Code': 'SMR', 'Flag': 'sm.png'}
     SAO_TOME_AND_PRINCIPE = {
-        'Name': 'Sao_Tome_and_Principe', 'Code': 'STP', 'Flag': 'st.png'}
-    SAUDI_ARABIA = {'Name': 'Saudi_Arabia', 'Code': 'SAU', 'Flag': 'sa.png'}
+        'Name': 'Sao Tome and Principe', 'Code': 'STP', 'Flag': 'st.png'}
+    SAUDI_ARABIA = {'Name': 'Saudi Arabia', 'Code': 'SAU', 'Flag': 'sa.png'}
     SENEGAL = {'Name': 'Senegal', 'Code': 'SEN', 'Flag': 'sn.png'}
     SERBIA = {'Name': 'Serbia', 'Code': 'SRB', 'Flag': 'rs.png'}
     SEYCHELLES = {'Name': 'Seychelles', 'Code': 'SYC', 'Flag': 'sc.png'}
-    SIERRA_LEONE = {'Name': 'Sierra_Leone', 'Code': 'SLE', 'Flag': 'sl.png'}
+    SIERRA_LEONE = {'Name': 'Sierra Leone', 'Code': 'SLE', 'Flag': 'sl.png'}
     SINGAPORE = {'Name': 'Singapore', 'Code': 'SGP', 'Flag': 'sg.png'}
-    SINT_MAARTEN = {'Name': 'Sint_Maarten', 'Code': 'SXM', 'Flag': 'sx.png'}
+    SINT_MAARTEN = {'Name': 'Sint Maarten', 'Code': 'SXM', 'Flag': 'sx.png'}
     SLOVAKIA = {'Name': 'Slovakia', 'Code': 'SVK', 'Flag': 'sk.png'}
     SLOVENIA = {'Name': 'Slovenia', 'Code': 'SVN', 'Flag': 'si.png'}
-    SOLOMON_ISLANDS = {'Name': 'Solomon_Islands',
+    SOLOMON_ISLANDS = {'Name': 'Solomon Islands',
                        'Code': 'SLB', 'Flag': 'sb.png'}
     SOMALIA = {'Name': 'Somalia', 'Code': 'SOM', 'Flag': 'so.png'}
-    SOUTH_AFRICA = {'Name': 'South_Africa', 'Code': 'ZAF', 'Flag': 'za.png'}
-    SOUTH_KOREA = {'Name': 'South_Korea', 'Code': 'KOR', 'Flag': 'kr.png'}
-    SOUTH_SUDAN = {'Name': 'South_Sudan', 'Code': 'SSD', 'Flag': 'ss.png'}
+    SOUTH_AFRICA = {'Name': 'South Africa', 'Code': 'ZAF', 'Flag': 'za.png'}
+    SOUTH_KOREA = {'Name': 'South Korea', 'Code': 'KOR',
+                   'Flag': 'kr.png', 'special': 'S. Korea'}
+    SOUTH_SUDAN = {'Name': 'South Sudan', 'Code': 'SSD', 'Flag': 'ss.png'}
     SPAIN = {'Name': 'Spain', 'Code': 'ESP', 'Flag': 'es.png'}
-    SRI_LANKA = {'Name': 'Sri_Lanka', 'Code': 'LKA', 'Flag': 'lk.png'}
+    SRI_LANKA = {'Name': 'Sri Lanka', 'Code': 'LKA', 'Flag': 'lk.png'}
     SUDAN = {'Name': 'Sudan', 'Code': 'SDN', 'Flag': 'sd.png'}
     SURINAME = {'Name': 'Suriname', 'Code': 'SUR', 'Flag': 'sr.png'}
     SVALBARD_AND_JAN_MAYEN = {
-        'Name': 'Svalbard_and_Jan_Mayen', 'Code': 'SJM', 'Flag': 'sj.png'}
+        'Name': 'Svalbard and Jan Mayen', 'Code': 'SJM', 'Flag': 'sj.png'}
     SWAZILAND = {'Name': 'Swaziland', 'Code': 'SWZ', 'Flag': 'sz.png'}
     SWEDEN = {'Name': 'Sweden', 'Code': 'SWE', 'Flag': 'se.png'}
     SWITZERLAND = {'Name': 'Switzerland', 'Code': 'CHE', 'Flag': 'ch.png'}
@@ -276,31 +279,31 @@ class Country(Enum):
     TOGO = {'Name': 'Togo', 'Code': 'TGO', 'Flag': 'tg.png'}
     TOKELAU = {'Name': 'Tokelau', 'Code': 'TKL', 'Flag': 'tk.png'}
     TONGA = {'Name': 'Tonga', 'Code': 'TON', 'Flag': 'to.png'}
-    TRINIDAD_AND_TOBAGO = {'Name': 'Trinidad_and_Tobago',
+    TRINIDAD_AND_TOBAGO = {'Name': 'Trinidad and Tobago',
                            'Code': 'TTO', 'Flag': 'tt.png'}
     TUNISIA = {'Name': 'Tunisia', 'Code': 'TUN', 'Flag': 'tn.png'}
     TURKEY = {'Name': 'Turkey', 'Code': 'TUR', 'Flag': 'tr.png'}
     TURKMENISTAN = {'Name': 'Turkmenistan', 'Code': 'TKM', 'Flag': 'tm.png'}
     TURKS_AND_CAICOS_ISLANDS = {
-        'Name': 'Turks_and_Caicos_Islands', 'Code': 'TCA', 'Flag': 'tc.png'}
+        'Name': 'Turks and Caicos Islands', 'Code': 'TCA', 'Flag': 'tc.png', 'special':'Turks and Caicos'}
     TUVALU = {'Name': 'Tuvalu', 'Code': 'TUV', 'Flag': 'tv.png'}
-    US_VIRGIN_ISLANDS = {'Name': 'U.S._Virgin_Islands',
+    US_VIRGIN_ISLANDS = {'Name': 'U.S.Virgin Islands',
                          'Code': 'VIR', 'Flag': 'vi.png'}
     UGANDA = {'Name': 'Uganda', 'Code': 'UGA', 'Flag': 'ug.png'}
     UKRAINE = {'Name': 'Ukraine', 'Code': 'UKR', 'Flag': 'ua.png'}
     UNITED_ARAB_EMIRATES = {
-        'Name': 'United_Arab_Emirates', 'Code': 'ARE', 'Flag': 'ae.png'}
-    UNITED_KINGDOM = {'Name': 'United Kingdom', 'Code': 'GBR', 'Flag': 'gb.png'}
+        'Name': 'United Arab Emirates', 'Code': 'ARE', 'Flag': 'ae.png', 'special':'UAE'}
+    UNITED_KINGDOM = {'Name': 'United Kingdom', 'Code': 'GBR', 'Flag': 'gb.png', 'special':'UK'}
     UNITED_STATES = {'Name': 'United States', 'Code': 'USA', 'Flag': 'us.png'}
     URUGUAY = {'Name': 'Uruguay', 'Code': 'URY', 'Flag': 'uy.png'}
     UZBEKISTAN = {'Name': 'Uzbekistan', 'Code': 'UZB', 'Flag': 'uz.png'}
     VANUATU = {'Name': 'Vanuatu', 'Code': 'VUT', 'Flag': 'vu.png'}
-    VATICAN = {'Name': 'Vatican', 'Code': 'VAT', 'Flag': 'va.png'}
+    VATICAN = {'Name': 'Vatican', 'Code': 'VAT', 'Flag': 'va.png', 'special':'Vatican City'}
     VENEZUELA = {'Name': 'Venezuela', 'Code': 'VEN', 'Flag': 've.png'}
     VIETNAM = {'Name': 'Vietnam', 'Code': 'VNM', 'Flag': 'vn.png'}
-    WALLIS_AND_FUTUNA = {'Name': 'Wallis_and_Futuna',
+    WALLIS_AND_FUTUNA = {'Name': 'Wallis and Futuna',
                          'Code': 'WLF', 'Flag': 'wf.png'}
-    WESTERN_SAHARA = {'Name': 'Western_Sahara',
+    WESTERN_SAHARA = {'Name': 'Western Sahara',
                       'Code': 'ESH', 'Flag': 'eh.png'}
     YEMEN = {'Name': 'Yemen', 'Code': 'YEM', 'Flag': 'ye.png'}
     ZAMBIA = {'Name': 'Zambia', 'Code': 'ZMB', 'Flag': 'zm.png'}

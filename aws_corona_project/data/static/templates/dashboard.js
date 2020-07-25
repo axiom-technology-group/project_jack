@@ -250,27 +250,61 @@ class SearchButton extends React.Component {
     }
 
     render () {
+        const labelStyle = {
+            fontSize: 'large',
+        };
+
+        const selectStyle = {
+            display: 'block',
+            fontSize: '16 px',
+            fontFamily: 'sans-serif',
+            fontWeight: '700',
+            color: '#444',
+            lineHeight: '1.3',
+            padding: '.6em 1.4em .5em .8em',
+            width: '60 px',
+            maxWidth: '60%',
+            boxSizing: 'border-box',
+            margin: '0',
+            border: '1px solid #aaa',
+            boxShadow: '0 1px 0 1px rgba(0,0,0,.04)',
+            borderRadius: '.5em',
+            backgroundColor: '#fff',
+        }
+
+        const submitStyle = {
+            backgroundColor: 'DodgerBlue',
+            border: 'none',
+            color: 'white',
+            padding: '5px 20px',
+            cursor: 'pointer',
+            frontSize: '20px',
+            borderRadius: '.5em',
+        }
+
         if (!this.state.isSearched) {
             return (
                 <div>
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
                     <form action="http://localhost:9999/dashboard" method="post">
-                        <label>Choose a country</label>
-                            <select name="searched_countries">
-                                {this.state.countryNames.map((country) => <option value={country.Code}>{country.Name}</option>)}
-                            </select>
-                        <p><input type="submit" onClick={this.setState({isSearched:true})} name="submit" value="Submit"></input></p>
+                        <label style={labelStyle}>Choose a country: </label>
+                        <select style={selectStyle} class="box" name="searched_countries">
+                            {this.state.countryNames.map((country) => <option value={country.Code}>{country.Name}</option>)}
+                        </select>
+                        <p><input style={submitStyle} type="submit" onClick={this.setState({isSearched:true})} name="submit" value="Submit"></input></p>
                     </form>
                 </div>
             )
         } else {
             return (
                 <div>
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
                     <form action="http://localhost:9999/dashboard" method="post">
-                        <label>Choose a country</label>
-                        <select name="searched_countries">
+                        <label style={labelStyle}>Choose a country</label>
+                        <select style={selectStyle} class="box" name="searched_countries">
                             {this.state.countryNames.map((country) => <option value={country.Code}>{country.Name}</option>)}
                         </select>
-                        <p><input type="submit" name="submit" value="Submit"></input></p>
+                        <p><input style={submitStyle} type="submit" name="submit" value="Submit"></input></p>
                     </form>
                 </div>
             );
@@ -278,29 +312,158 @@ class SearchButton extends React.Component {
     }
 }
 
-class RankingTopThree extends React.Component {
+class DataTable extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
+            titles:['Rank', 'Country Other', 'Total Cases', 'New Cases',
+                    'Total Death', 'New Death', 'Total Recovery', 'Active Cases',
+                    'Serious/Critical', 'Total Cases/1M pop', 'Deaths/1M pop', 'Total Tests', 'Test/1M pop'],
+            table:[],
             isLoaded:false,
-            rankings:[],
         };
     }
 
+    renderTitle() {
+        const style = {
+            border:'1px solid black'
+        };
 
-    render() {
+        return (
+            <tr key='title'>
+                {this.state.titles.map((title) => {return <th style={style}>{title}</th>})}
+            </tr>
+        )
+    }
+
+    renderTableData() {
+        const style = {
+            border:'1px solid black',
+            height:'50px',
+            width:'100px'
+        };
+
         if (!this.state.isLoaded) {
-            fetch("dashboard/ranking")
+            fetch("dashboard/table_today")
                 .then(response => response.json())
-                .then(response => this.setState({rankings:response, isLoaded:true}));
+                .then(response => this.setState({ table: response, isLoaded: true }));
         }
+        return this.state.table.map((country, index) => {
+            return (
+                <tr>
+                    <td style={style}>{index + 1}</td>
+                    <td style={style} align="center"><img width="20" height="14" align="left" src={country.flag} /> {country.country_other}</td>
+                    <td style={style}>{country.total_cases}</td>
+                    <td style={style}>{country.new_cases}</td>
+                    <td style={style}>{country.total_deaths}</td>
+                    <td style={style}>{country.new_deaths}</td>
+                    <td style={style}>{country.total_recovered}</td>
+                    <td style={style}>{country.new_recovered}</td>
+                    <td style={style}>{country.active_cases}</td>
+                    <td style={style}>{country.serious_critical}</td>
+                    <td style={style}>{country.tot_cases_1m_pop}</td>
+                    <td style={style}>{country.deaths_1m_pop}</td>
+                    <td style={style}>{country.total_tests}</td>
+                    <td>{country.test_1m_pop}</td>
+                </tr>
+            )
+        }   
+        )
+        
+    }
+    
+    render() {
+        const style = {
+            margin:'5px',
+            border:'1px solid black',
+        };
         return (
             <div>
-                <p>
-                    {this.state.rankings.map((country) => <p><img src={country.Flag} /></p>)} 
-                </p>
+                <table style={style} id='dataTable'>
+                    <thead>
+                    {this.renderTitle()}
+                    </thead>
+                    <tbody>
+                        {this.renderTableData()}
+                    </tbody>
+                </table>
             </div>
-        );
+        )
+    }
+}
+
+class DownloadButton extends React.Component {
+
+    getFile() {
+        var d = new Date();
+        var year = d.getFullYear();
+        var month = d.getMonth() + 1;
+        var day = d.getDate();
+        var file = "";
+        if (month < 10) {
+            file = year + "-0" + month + "-" + day;
+        } else {
+            file = year + "-" + month + "-" + day;
+        }
+        file += "-coronavirus-worldometers.csv";
+
+        return "/download_file/" + file
+    }
+
+    render() {
+        const style = {
+            backgroundColor:'DodgerBlue',
+            border:'none',
+            color:'white',
+            padding:'12px 30px',
+            cursor:'pointer',
+            frontSize:'20px',
+            borderRadius: '.5em',
+        };
+
+        return (
+            <div>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+                <a href={this.getFile()}>
+                    <button style={style} type="button"><i class="fa fa-download"></i> Download Data</button>
+                </a>
+            </div>
+        )
+    }
+}
+
+class Summary extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            summary:[],
+            isLoaded:false,
+        };
+    }
+
+    render() {
+        const titleStyle = {
+
+        };
+
+        const numStyle = {
+
+        };
+
+        if (!this.state.isLoaded){
+            fetch("dashboard/summary")
+                .then(response => response.json())
+                .then(response => this.setState({ summary: response, isLoaded: true}))
+        }
+        
+        return (
+            <div>
+                <p>Total Cases:<br/><p>{this.state.summary['total_cases']}</p></p>
+                <p>Total Deaths<br/><p>{this.state.summary['total_death']}</p></p>
+                <p>New Cases:<br/><p>{this.state.summary['new_cases']}</p></p>
+                <p>Total Recovered:<br/><p>{this.state.summary['total_recovered']}</p></p>
+            </div>
+        )
     }
 }
 
@@ -309,8 +472,10 @@ class App extends React.Component {
     render() {
         return (
             <div>
+                <Summary />
                 <SearchButton />
-                <RankingTopThree />
+                <DownloadButton />
+                <DataTable />
             </div>
         );
     }
